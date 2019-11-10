@@ -51,7 +51,7 @@ for object_ in objects:
         if i == 2:
             coord.append(vertex.y)
         i+=1
-    if (object_.name == "Top" or object_.name == "Shirt"):
+    if (object_.name == "Top" or object_.name == "Shirt" or object_.name == "Outerwear"):
         width, height = im.size
         # Cropped image of above dimension
         # (It will not change orginal image)

@@ -3,13 +3,47 @@ import requests
 import time
 from playsound import playsound
 from xml.etree import ElementTree
+import requests
+import json
 class TextToSpeech(object):
     def __init__(self, subscription_key, color, article):
+        #start weather
+        api_key = "fa95a0b10d0af6aa790307ed051577b8"
+        base_url = "http://api.openweathermap.org/data/2.5/weather?"
+        city_name = "McLean" #input("Enter city name : ")
+        #complete_url = base_url + "appid=" + api_key + "&q=" + city_name
+        complete_url="http://api.openweathermap.org/data/2.5/forecast?q="
+        complete_url+=city_name
+        complete_url+="&APPID="
+        complete_url+=api_key
+        response = requests.get(complete_url)
+        x = response.json()
+        if x["cod"] != "404":
+            y = x["list"]
+            #print(y)
+            temp1 = y[1]['main']['temp']
+            #print(temp1)
+            temp = ((temp1 - 273.15)*1.8)+33.8
+            print(temp)
+            raining=y[0]['weather'][0]['main']
+            print(raining)
+        rain=False
+        if raining=='Rain':
+            rain = True
+        #end weather
         self.subscription_key = subscription_key
         if(color == "none"):
             self.tts = "what article of clothing would you like a suggestion for?"
         else:
-            self.tts = color + " will go well with that " + article
+            self.tts = color + " will go well with that " + article+"...................."
+            if temp<40:
+                self.tts +="It is very cold outside, grab a thick jacket"
+            elif temp<63:
+                self.tts +="looks like it's a bit chilly outside, grab a jacket"
+            elif temp>=73:
+                self.tts +="It is nice and sunny outside, enjoy your day"
+            if rain:
+                self.tts +="...................."+"It's supposed to rain in your area, grab an umbrella"
         self.timestr = time.strftime("%Y%m%d-%H%M")
         self.access_token = None
     def get_token(self):
