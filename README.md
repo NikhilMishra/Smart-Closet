@@ -8,7 +8,7 @@ This program stores the dictionaries containing color combinations and clothing 
 It is also responsible for using GCP to determine color combinations.
 
 ## smartCloset2.py
-This is the driver program. Here we send the user's picture to GCP and recieve the raw data of objects recognized in the image. It is also responsible for doing weather API calls.
+This is the driver program. Here we send the user's picture to GCP and recieve the raw data of objects recognized in the image.
 
 ## speech2text.py and text2speech.py
-Uses Azure API to process speech to text and text to speech
+Uses Azure API to process speech to text and text to speech. Also, for some reason text2speech does the weather API call as well.
