@@ -4,7 +4,7 @@ import azure.cognitiveservices.speech as speechsdk
 # Replace with your own subscription key and service region (e.g., "westus").
 def userInput():
 
-    speech_key, service_region = "3dcb81c95f9d46248813f574677f3272", "westus"
+    speech_key, service_region = "key", "westus"
     speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
 
 # Creates a reconizer with the given settings
