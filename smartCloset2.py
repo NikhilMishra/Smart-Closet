@@ -15,7 +15,7 @@ def closest_colour(requested_colour):
         bd = (b_c - requested_colour[2]) ** 2
         min_colours[(rd + gd  + bd)] = name
     return min_colours[min(min_colours.keys())]
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"]=r"C:\Users\nikhi\Downloads\smartCloset-522bf9518279.json"
+os.environ["Path to JSON"]
 print(os.environ["GOOGLE_APPLICATION_CREDENTIALS"])
 from google.cloud import vision
 client = vision.ImageAnnotatorClient()
@@ -26,7 +26,7 @@ camTest.capture()
 im = Image.open('opencv.png')
 path = 'opencv.png'
 #suggest = input("what article of clothing do you want a suggestion for? ")
-subscription_key = "3dcb81c95f9d46248813f574677f3272"
+subscription_key = "subscription key here"
 app = text2speech.TextToSpeech(subscription_key, "none", "none")
 app.get_token()
 app.save_audio("suggest.wav")
