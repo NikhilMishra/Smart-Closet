@@ -8,7 +8,7 @@ import json
 class TextToSpeech(object):
     def __init__(self, subscription_key, color, article):
         #start weather
-        api_key = "fa95a0b10d0af6aa790307ed051577b8"
+        api_key = "key"
         base_url = "http://api.openweathermap.org/data/2.5/weather?"
         city_name = "McLean" #input("Enter city name : ")
         #complete_url = base_url + "appid=" + api_key + "&q=" + city_name
